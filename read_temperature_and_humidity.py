@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import sys
 import Adafruit_DHT
+from datetime import datetime
 
 sensor=11
 pin=4
@@ -10,5 +11,6 @@ while True:
     print('Temp:{0:0.1f} C Humidity:{1:0.1f}'.format(temperature,humidity))
 
     with open("log.csv", "at") as logfile:
-        logfile.write("{0:0.2f},{1:0.2f}\n".format(temperature, humidity))
+        logfile.write("{0:0.2f},{1:0.2f},{2}\n".format(temperature, humidity, str(datetime.now())))
+
 
