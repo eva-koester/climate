@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import sys
+from record import write_to_db
 import Adafruit_DHT
 from datetime import datetime
 
@@ -12,5 +13,6 @@ while True:
 
     with open("log.csv", "at") as logfile:
         logfile.write("{0:0.2f},{1:0.2f},{2}\n".format(temperature, humidity, str(datetime.now())))
+    write_to_db(temperature, humidity)
 
 
